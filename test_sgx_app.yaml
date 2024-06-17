@@ -12,7 +12,7 @@
 # Application tested in SIM mode: https://github.com/hstoenescu/SGX-beginner-sample
 # Application test in HW mode: https://github.com/intel/linux-sgx/tree/master/SampleCode/RemoteAttestation
 
-- hosts: localhost 
+- hosts: sgx_server
   become: no
   vars:
     ## SDK ##
@@ -38,9 +38,9 @@
 
     - name: "[GENERAL] Complete the path on variables with the current user"
       set_fact:
-        ansible_repo="{{ current_home_directory.stdout }}/linux-sgx"
-        sample_libcrypto="{{ current_home_directory.stdout }}/linux-sgx/sdk/sample_libcrypto"
-        sample_code_ra="{{ current_home_directory.stdout }}/linux-sgx/SampleCode/RemoteAttestation"
+        ansible_repo="{{ current_home_directory.stdout }}/Documents/SGX/linux-sgx"
+        sample_libcrypto="{{ current_home_directory.stdout }}/Documents/SGX/linux-sgx/sdk/sample_libcrypto"
+        sample_code_ra="{{ current_home_directory.stdout }}/Documents/SGX/linux-sgx/SampleCode/RemoteAttestation"
       tags: [ 'sim_test', 'hw_test' ]
 
     ## SIM MODE ##
